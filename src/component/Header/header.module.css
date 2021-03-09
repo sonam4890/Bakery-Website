@@ -1,0 +1,49 @@
+.nav {
+  background-color: rgb(43, 41, 41, 0.2);
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 600px;
+}
+
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(148, 75, 75);
+}
+
+p.head {
+  font-size: 30px;
+  text-transform: capitalize;
+  padding: 10px;
+}
+
+span.pink {
+  color: rgb(230, 84, 132);
+  font-size: 50px;
+}
+
+span.exp {
+  cursor: pointer;
+  border: 1px solid black;
+  text-transform: uppercase;
+  font-size: 25px;
+  color: black;
+  padding: 10px;
+}
+
+.exp:hover {
+  background-color: black;
+  color: rgb(230, 84, 132);
+}

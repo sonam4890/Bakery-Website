@@ -1,0 +1,374 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  background-color: rgb(241, 225, 225);
+  padding: 5px 20px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 150;
+  box-shadow: 0 2px rgb(209, 193, 193);
+}
+
+.logo {
+  width: 70px;
+  height: 50px;
+  cursor: pointer;
+  border: 1px solid white;
+  border-radius: 20px;
+}
+
+.menubar {
+  list-style-type: none;
+  text-transform: uppercase;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 5px 0px;
+  padding: 0% 12%;
+  width: 60%;
+}
+
+.menubar li {
+  display: inline-block;
+  margin: 10px;
+}
+
+.menubar li a {
+  text-decoration: none;
+  color: rgb(230, 84, 132);
+}
+
+.menubar a:hover {
+  color: black;
+}
+
+.number {
+  display: block;
+  width: 20%;
+  margin: 8px 0;
+  padding: 5px;
+}
+
+.cart {
+  display: block;
+  /* border: 1px solid black; */
+  text-align: center;
+  width: 17%;
+  margin: 7px;
+  padding: 5px;
+}
+
+.cart:hover {
+  background-color: rgb(230, 84, 132);
+  color: white;
+}
+
+.bar {
+  margin: 10px;
+  font-size: 30px;
+  color: rgb(133, 78, 96);
+  cursor: pointer;
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .menubar,
+  .number,
+  .logo {
+    display: none;
+  }
+  .bar {
+    display: inline;
+    float: left;
+  }
+  .navbar {
+    display: block;
+  }
+  .cart {
+    float: right;
+    width: 30%;
+  }
+}
+
+.navbar::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.header {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.pic {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  left: 0;
+}
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(148, 75, 75);
+}
+
+.centered {
+  padding: 5%;
+  background-color: white;
+  /* padding: 40px 10px; */
+  position: relative;
+  display: flex;
+}
+
+.main {
+  width: 45%;
+  padding: 10px 50px;
+}
+
+.head {
+  font-size: 30px;
+  text-transform: capitalize;
+  margin: 0;
+  padding: 0;
+}
+
+.pink {
+  color: rgb(230, 84, 132);
+  font-size: 50px;
+}
+
+.exp {
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  text-transform: uppercase;
+  font-size: 25px;
+  color: black;
+  padding: 10px;
+}
+
+.exp:hover {
+  background-color: black;
+  color: rgb(230, 84, 132);
+}
+
+.animate {
+  width: 55%;
+  position: relative;
+}
+
+.animated {
+  width: 510px;
+  height: 410px;
+  border: 5px solid gold;
+  position: relative;
+}
+
+.image {
+  width: 500px;
+  height: 400px;
+  position: absolute;
+  top: 35px;
+  left: 35px;
+}
+
+.animated:hover {
+  animation: example 2s forwards;
+  cursor: pointer;
+}
+
+@keyframes example {
+  from {
+    top: 0px;
+    left: 0px;
+  }
+  to {
+    top: 30px;
+    left: 30px;
+  }
+}
+
+.centered::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+@media only screen and (max-width: 1100px) {
+  .animated {
+    width: 450px;
+    height: 330px;
+  }
+  .image {
+    width: 440px;
+    height: 320px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .animated {
+    width: 360px;
+    height: 265px;
+  }
+  .image {
+    width: 350px;
+    height: 255px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .centered {
+    display: block;
+    padding: 30px 10px 50px 50px;
+  }
+  .main {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .animated {
+    width: 240px;
+    height: 170px;
+  }
+  .image {
+    width: 230px;
+    height: 160px;
+  }
+}
+
+.footer {
+  background: rgb(241, 225, 225);
+  padding-top: 6%;
+  text-align: center;
+  position: relative;
+}
+
+.menu button {
+  display: inline-flex;
+  background-color: lightgrey;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-family: cursive;
+  margin: 12px 20px;
+  padding: 5px 10px;
+  border: 1px solid black;
+}
+
+.menu button:hover {
+  background-color: black;
+  color: rgb(230, 84, 132);
+  cursor: pointer;
+}
+
+.gallary {
+  padding: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  /* background-color: lightgrey; */
+  background: rgb(241, 225, 225);
+}
+
+.item {
+  display: flex;
+  width: 30%;
+  height: 280px;
+  position: relative;
+  margin: 20px;
+}
+
+.imageDiv {
+  width: 100%;
+  height: 250px;
+  position: absolute;
+  overflow: hidden;
+}
+
+.images {
+  width: 100%;
+  height: 250px;
+  margin-bottom: 0px;
+  padding: 0px;
+  cursor: pointer;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.images:hover {
+  animation: example1 1s linear forwards;
+}
+
+@keyframes example1 {
+  from {
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 250px;
+  }
+  to {
+    left: -20px;
+    top: -15px;
+    width: 110%;
+    height: 280px;
+  }
+}
+
+.price {
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  bottom: 0px;
+}
+
+.pri > i {
+  font-weight: 300;
+}
+
+.cart2 {
+  color: rgba(10, 9, 9, 0.7);
+  border: none;
+  box-shadow: -1px 2px rgb(204, 171, 171);
+  padding: 4px 14px;
+  background-color: pink;
+  width: 100%;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+
+.cart2:hover {
+  background-color: rgb(230, 84, 132);
+  color: white;
+}
+
+@media screen and (max-width: 1280px) {
+  .item {
+    width: 29%;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .item {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .item {
+    width: 80%;
+  }
+}

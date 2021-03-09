@@ -1,0 +1,112 @@
+.centered {
+  background-color: white;
+  padding: 40px 10px;
+  /* position: relative;
+  top: 600px; */
+  display: flex;
+}
+
+.main {
+  width: 45%;
+  padding: 10px 50px;
+}
+
+.head {
+  font-size: 30px;
+  text-transform: capitalize;
+  margin: 0;
+  padding: 0;
+}
+
+.pink {
+  color: rgb(230, 84, 132);
+  font-size: 50px;
+}
+
+.exp {
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+  text-transform: uppercase;
+  font-size: 25px;
+  color: black;
+  padding: 10px;
+}
+
+.exp:hover {
+  background-color: black;
+  color: rgb(230, 84, 132);
+}
+
+.animate {
+  width: 55%;
+  position: relative;
+}
+
+.animated {
+  width: 510px;
+  height: 410px;
+  border: 5px solid gold;
+  position: relative;
+}
+
+.image {
+  width: 500px;
+  height: 400px;
+  position: absolute;
+  top: 35px;
+  left: 35px;
+}
+
+.animated:hover {
+  animation: example 2s forwards;
+  cursor: pointer;
+}
+
+@keyframes example {
+  from {
+    top: 0px;
+    left: 0px;
+  }
+  to {
+    top: 30px;
+    left: 30px;
+  }
+}
+
+.centered::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+@media only screen and (max-width: 1100px) {
+  .animated {
+    width: 450px;
+    height: 330px;
+  }
+  .image {
+    width: 440px;
+    height: 320px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .animated {
+    width: 360px;
+    height: 265px;
+  }
+  .image {
+    width: 350px;
+    height: 255px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .centered {
+    display: block;
+    padding: 30px 10px 50px 50px;
+  }
+  .main {
+    width: 80%;
+  }
+}

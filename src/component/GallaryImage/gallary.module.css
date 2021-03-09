@@ -1,0 +1,65 @@
+.gallary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+}
+
+.item {
+  display: flex;
+  width: 30%;
+  height: 300px;
+  position: relative;
+}
+
+.imageDiv {
+  width: 100%;
+  height: 250px;
+  position: absolute;
+  overflow: hidden;
+}
+
+.images {
+  width: 100%;
+  height: 250px;
+  margin-bottom: 0px;
+  padding: 0px;
+  cursor: pointer;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.images:hover {
+  animation: example1 1s linear forwards;
+}
+
+@keyframes example1 {
+  from {
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 250px;
+  }
+  to {
+    left: -20px;
+    top: -15px;
+    width: 110%;
+    height: 280px;
+  }
+}
+
+.price {
+  text-align: left;
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  margin: 0px;
+  padding: 10px;
+  position: absolute;
+  bottom: 0px;
+}
+
+/* .item > p > span {
+  float: right;
+} */
