@@ -1,0 +1,67 @@
+.Register{
+    width: 50%;
+    align-items: center;
+    position: relative;
+    top: 25vh;
+    left: 25%;
+    border: 1px solid pink;
+    font-size: 18px;
+    text-transform: capitalize;
+    box-shadow: 10px 10px 10px rgb(182, 179, 179);
+    background-color: rgb(245, 210, 216, 0.5);
+}
+
+.Form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Input{
+    padding: 5px 10px;
+    margin: 20px;
+    outline: none;
+    border: 1px solid rgb(192, 188, 188);
+}
+
+.Button {
+    font-weight: 700;
+    width: 100%;
+    display: block;
+    outline: none;
+    border: none;
+    background-color: rgb(183, 72, 235);
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 0;
+}
+
+.Button:hover{
+    background-color: rgb(141, 55, 180);
+}
+
+.head {
+    padding: 15px;
+    color: red;
+    text-align: center;
+}
+
+@media (max-width: 800px){
+    .Register{
+        width: 80%;
+        left: 10%;
+    }
+}
+
+@media (max-width: 500px){
+    .Register{
+        width: 90%;
+        left: 5%;
+        font-size: 15px;
+        border: none;
+    }
+    .Input{
+        width: 100%;
+        margin: 5px auto;
+    }
+}

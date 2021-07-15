@@ -1,8 +1,9 @@
 import React from "react";
 import Logo from "../../images/logo.jpg";
-import styles from "../../App.module.css";
+import styles from "./navbar.module.css";
 import Sidedrawer from "../sidedrawer/sidedrawer";
 import Backdrop from "../Backdrop/Backdrop";
+import {Link} from 'react-router-dom';
 
 const navbar = (props) => {
   let sidedrawer = props.shows ? (
@@ -12,30 +13,35 @@ const navbar = (props) => {
     <div className={styles.navbar}>
       {sidedrawer}
       <Backdrop open={props.shows} />
+      <div className={styles.bar} onClick={props.clicked}>
+        <i className="bars icon"></i>
+      </div>
       <div>
         <img className={styles.logo} src={Logo} alt="logo"></img>
       </div>
       <ul className={styles.menubar}>
         <li>
-          <a href="#header">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="#about">About</a>
+          <Link to="/about">About</Link>
         </li>
         <li>
-          <a href="#footer">Store</a>
+          <Link to="/store">Store</Link>
         </li>
       </ul>
-      <span className={styles.number}>
-        <i className="phone icon"></i>+917042127206
-      </span>
-      <span className={styles.cart}>
+      <div className={styles.other}>
+      <Link to="/login" className={styles.login}>
+        {props.auth? <span onClick={props.logout}>Logout</span> : <span>login</span>}
+      </Link>
+      <Link to='/orders' className={styles.order}>
+        orders
+      </Link>
+      <Link to='/cart' className={styles.cart} >
         <i className="shopping cart icon"></i>
         {props.item} items
-      </span>
-      <span className={styles.bar} onClick={props.clicked}>
-        <i className="bars icon"></i>
-      </span>
+      </Link>
+      </div>
     </div>
   );
 };

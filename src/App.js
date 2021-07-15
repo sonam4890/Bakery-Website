@@ -1,4 +1,5 @@
-import styles from "./App.module.css";
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
 import React, { Component } from "react";
 import Navbar from "./component/Navbar/navbar";
 import Header from "./component/Header/header";
@@ -12,12 +13,16 @@ import Cupcake3 from "./images/cupcake-3.jpeg";
 import Doughnut1 from "./images/doughnut-1.jpeg";
 import Doughnut2 from "./images/doughnut-2.jpeg";
 import Doughnut3 from "./images/doughnut-3.jpeg";
-import sweet1 from "./images/sweets-1.jpeg";
-import sweet2 from "./images/sweets-2.jpeg";
-import sweet3 from "./images/sweets-3.jpeg";
+import Sweet1 from "./images/sweets-1.jpeg";
+import Sweet2 from "./images/sweets-2.jpeg";
+import Sweet3 from "./images/sweets-3.jpeg";
 import Modal from "./component/modal/modal";
-import Gallary from "./component/GallaryImage/gallary";
-import Filter from "./component/Filter/filter";
+import Product from './component/products/products';
+import {Route, Switch} from 'react-router-dom';
+import Register from './container/register/register';
+import Cart from './component/cart/cart';
+import * as actions from './Store/index';
+import { connect } from 'react-redux';
 
 class App extends Component {
   state = {
@@ -88,21 +93,21 @@ class App extends Component {
       {
         class: "sweet",
         id: "sandwhich sweet",
-        name: sweet1,
+        name: Sweet1,
         price: 250,
         show: true,
       },
       {
         class: "sweet",
         id: "melon sweet",
-        name: sweet2,
+        name: Sweet2,
         price: 250,
         show: true,
       },
       {
         class: "sweet",
         id: "Chocolates",
-        name: sweet3,
+        name: Sweet3,
         price: 250,
         show: true,
       },
@@ -111,8 +116,8 @@ class App extends Component {
     modalVisibility: false,
     sideDrawerOpen: false,
     clickimage: null,
-    object: {},
-    ItemsInCart: 0,
+    ItemsInCart: [],
+    totalItem: 0,
     TotalPrice: 0,
   };
 
@@ -182,50 +187,35 @@ class App extends Component {
     }
   };
 
-  addToCartHandler = (str, index) => {
-    let obj = { ...this.state.object };
-    obj[str] > 0 ? obj[str]++ : (obj[str] = 1);
-    let count = Object.values(obj).reduce((sum, el) => sum + el, 0);
-    let price = this.state.TotalPrice;
-    let updatedPrice = price + this.state.images[index].price;
+  addToCartHandler = (obj) => {
+    let cart = [...this.state.ItemsInCart, obj];
+    let count = cart.length;
+
     this.setState({
-      object: obj,
-      ItemsInCart: count,
-      show: !this.state.show,
-      TotalPrice: updatedPrice,
+      ItemsInCart: cart,
+      totalItem: count
     });
-    alert(`you have added ${str} in your cart.
-    Total price is: ${updatedPrice}`);
   };
 
   render() {
-    const arr = [...this.state.images];
-    let show = arr.map((el, i) => {
-      if (el.show === true) {
-        return (
-          <Gallary
-            image={el.name}
-            key={i}
-            clicked={() => this.imageclickHandler(i)}
-            price={el.price}
-            click={() => this.addToCartHandler(el.id, i)}
-          />
-        );
-      }
-    });
-
     return (
       <div>
         <Navbar
-          item={this.state.ItemsInCart}
+          item={this.state.totalItem}
           clicked={this.menuClickHandler}
           shows={this.state.sideDrawerOpen}
           remove={this.backdropshowHandler}
+          auth={this.props.authenticate}
+          logout={this.props.onLogout}
         />
-        <Header />
-
-        <Filter changed={this.filterHandler} item={this.allButtonHandler} />
-        <div className={styles.gallary}>{show}</div>
+        
+        <Switch>
+          <Route path='/' exact component={Header}/>
+          <Route path='/store' component={() => <Product filter={this.filterHandler} ButtonHandler={this.allButtonHandler} images={this.state.images} imageHandler={this.imageclickHandler} cartHandler={this.addToCartHandler} /> }/>
+          <Route path='/about' component={Center}/>
+          <Route path='/login' component={Register}/>
+          <Route path='/cart' component={() => <Cart items={this.state.ItemsInCart} />}/>
+        </Switch>
         <Modal
           seen={this.state.modalVisibility}
           image1={this.state.clickimage}
@@ -234,10 +224,25 @@ class App extends Component {
           nextclick={this.nextimageHandler}
           prevclick={this.previmageHandler}
         />
-        <Center />
+        
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => { 
+  return {
+    authenticate: state.authenticated,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onLogout: () => dispatch(actions.logout()),
+    // onCart: () => dispatch(actions.cart()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+
+

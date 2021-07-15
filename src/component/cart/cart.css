@@ -1,0 +1,57 @@
+.Cart{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+}
+
+.container{
+    position: relative;
+    text-transform: capitalize;
+    width: 70%;
+    background-color: rgb(245, 194, 202, 0.5);
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+.item{
+    padding: 10px;
+    border-bottom: 1px solid rgb(177, 174, 174);
+}
+
+.Item {
+    width: 200px;
+    height: 250px;
+}
+
+.link {
+    font-size: 15px;
+    margin: 30px;
+    color: rgb(4, 76, 4);
+}
+
+.link:hover{
+    text-decoration: underline;
+}
+
+.Price {
+    padding: 20px;
+    width: 25%;
+    height: 250px;
+    box-sizing: border-box;
+    margin-left: 20px;
+    background-color: rgb(245, 194, 202, 0.5);
+    text-align: center;
+    font-size: 18px;
+}
+
+.Button {
+    margin-top: 30px;
+    display: block;
+}
+
+.Empty{
+    text-align: center;
+    font-size: 25px;
+    position: relative;
+    top: 40vh;
+}

@@ -1,13 +1,21 @@
-.header {
+.navbar {
   background-color: rgb(241, 225, 225);
-  padding: 15px 20px;
+  padding: 5px 10px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 150;
+  box-shadow: 5px 5px 5px rgb(238, 187, 187, 0.8);
+  text-transform: capitalize;
+  font-size: 19px;
 }
 
 .logo {
-  width: 60px;
+  width: 70px;
   height: 50px;
   cursor: pointer;
   border: 1px solid white;
@@ -16,49 +24,26 @@
 
 .menubar {
   list-style-type: none;
-  text-transform: uppercase;
-  font-size: 16px;
-  cursor: pointer;
-  margin: 5px 0px;
-  padding: 0% 12%;
-  width: 60%;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
 }
 
-.menubar li {
-  display: inline-block;
-  margin: 10px;
-}
-
-.menubar li a {
+a {
+  padding: 0 10px;
   text-decoration: none;
-  color: rgb(230, 84, 132);
-  /* padding: 5px 8px; */
+  color: rgb(224, 28, 94);
 }
 
-.menubar a:hover {
+a:hover {
   color: black;
 }
 
-.header::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.number {
-  display: block;
-  width: 20%;
-  margin: 8px 0;
-  padding: 5px;
-}
-
-.cart {
-  display: block;
-  border: 1px solid black;
-  text-align: center;
-  width: 17%;
-  margin: 7px;
-  padding: 5px;
+.other{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 5%;
 }
 
 .cart:hover {
@@ -74,20 +59,14 @@
   display: none;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 700px) {
   .menubar,
-  .number,
-  .cart {
+  .order,
+  .logo {
     display: none;
   }
   .bar {
     display: inline;
-    float: right;
-  }
-  .header {
-    display: block;
-  }
-  .logo {
-    float: left;
   }
 }
+
