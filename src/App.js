@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.js';
+// import 'bootstrap/dist/js/bootstrap.js';
 import React, { Component } from "react";
 import Navbar from "./component/Navbar/navbar";
 import Header from "./component/Header/header";
@@ -23,6 +23,7 @@ import Register from './container/register/register';
 import Cart from './component/cart/cart';
 import * as actions from './Store/index';
 import { connect } from 'react-redux';
+import cart from './component/cart/cart';
 
 class App extends Component {
   state = {
@@ -112,25 +113,32 @@ class App extends Component {
         show: true,
       },
     ],
-
     modalVisibility: false,
     sideDrawerOpen: false,
     clickimage: null,
     ItemsInCart: [],
-    totalItem: 0,
     TotalPrice: 0,
   };
 
+  componentDidMount(){
+    this.fetchCartItem();
+  }
+
+  fetchCartItem(){
+    let cart = JSON.parse(sessionStorage.getItem("bakeryCart"));
+    this.setState({ItemsInCart: cart})
+  }
+
   filterHandler = (event) => {
     let arr = this.state.images.slice();
-    let Item = event.target.value.toLowerCase();
-    let x = arr.map((el) => {
+    let Item = event.target.value.trim().toLowerCase();
+    let x = arr.filter((el) => {
       if (el.class.includes(Item)) {
         el.show = true;
-        return el;
+        return el
       } else {
         el.show = false;
-        return el;
+        return el
       }
     });
     this.setState({ images: x });
@@ -188,20 +196,36 @@ class App extends Component {
   };
 
   addToCartHandler = (obj) => {
-    let cart = [...this.state.ItemsInCart, obj];
-    let count = cart.length;
+    let saveItem = JSON.parse(sessionStorage.getItem("bakeryCart"))
 
+    let cart = [];
+    if(saveItem){
+      cart = [...saveItem, obj];
+    } else {
+      cart =  [obj];
+    }
+    sessionStorage.setItem('bakeryCart', JSON.stringify(cart));
+  
     this.setState({
       ItemsInCart: cart,
-      totalItem: count
     });
   };
+
+  deleteItemHandler = (id) => {
+    let saveItem = JSON.parse(sessionStorage.getItem("bakeryCart"));
+    let index = saveItem.findIndex((item) => item.id === id);
+    saveItem.splice(index, 1);
+    sessionStorage.setItem("bakeryCart", JSON.stringify(saveItem));
+    this.setState({ItemsInCart: saveItem})
+
+
+  }
 
   render() {
     return (
       <div>
         <Navbar
-          item={this.state.totalItem}
+          item={this.state.ItemsInCart}
           clicked={this.menuClickHandler}
           shows={this.state.sideDrawerOpen}
           remove={this.backdropshowHandler}
@@ -211,10 +235,10 @@ class App extends Component {
         
         <Switch>
           <Route path='/' exact component={Header}/>
-          <Route path='/store' component={() => <Product filter={this.filterHandler} ButtonHandler={this.allButtonHandler} images={this.state.images} imageHandler={this.imageclickHandler} cartHandler={this.addToCartHandler} /> }/>
+          <Route path='/store' render={() => <Product filter={this.filterHandler} ButtonHandler={this.allButtonHandler} images={this.state.images} imageHandler={this.imageclickHandler} cartHandler={this.addToCartHandler} /> }/>
           <Route path='/about' component={Center}/>
           <Route path='/login' component={Register}/>
-          <Route path='/cart' component={() => <Cart items={this.state.ItemsInCart} />}/>
+          <Route path='/cart' render={() => <Cart items={this.state.ItemsInCart} delete={this.deleteItemHandler}/>}/>
         </Switch>
         <Modal
           seen={this.state.modalVisibility}

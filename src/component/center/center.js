@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../App.module.css";
+import styles from "./center.module.css";
 import sweet from "../../images/sweets.jpeg";
 
 const center = () => {
@@ -13,9 +13,6 @@ const center = () => {
           We provide the best quality products. Our specialities are cakes,
           pastries, cupcakes, doughnuts and sweets.
         </p>
-        {/* <p>
-          <span className={styles.exp}>explore</span>
-        </p> */}
       </div>
       <div className={styles.animate}>
         <div className={styles.animated}></div>

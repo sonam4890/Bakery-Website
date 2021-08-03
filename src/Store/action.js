@@ -48,6 +48,7 @@ export const login = (user) => {
                 localStorage.setItem('jwt', res.data.token );
                 dispatch(loginSuccess());
             }else{
+                console.log(res)
                 dispatch(loginFailed(res));
             }
         })
@@ -70,6 +71,7 @@ export const signUp = (user) => {
             }
         })
         .catch((err) => {
+            console.log(err)
             dispatch(signUpFailed(err));
         });
     }
@@ -91,17 +93,9 @@ export const logout = () => {
             }
         })
         .catch((err) => {
+            console.log(err)
             alert('Logout failed')
         });
     }
 }
 
-// export const cart = async() => {
-//     let token = localStorage.getItem('jwt');
-//     console.log(token);
-//     axios.post('http://localhost:5000/logout', {token})
-//     .then(res => {
-//         console.log(res)
-//     })
-//     .carch(err => console.log(err))
-// }

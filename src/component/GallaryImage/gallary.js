@@ -2,10 +2,6 @@ import React from "react";
 import styles from "../../App.module.css";
 
 const gallary = (props) => {
-  // let cart = "ADD TO CART";
-  // if (props.shows) {
-  //   cart = "GO TO CART";
-  // }
   return (
     <div className={styles.item}>
       <div className={styles.imageDiv} onClick={props.clicked}>

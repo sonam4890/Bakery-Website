@@ -13,6 +13,15 @@
     box-sizing: border-box;
 }
 
+.links{
+    display: block;
+    padding: 10px 0;
+}
+.links:hover{
+    text-decoration: underline;
+    
+}
+
 .item{
     padding: 10px;
     border-bottom: 1px solid rgb(177, 174, 174);
@@ -24,9 +33,9 @@
 }
 
 .link {
-    font-size: 15px;
-    margin: 30px;
-    color: rgb(4, 76, 4);
+    font-size: 14px;
+    color: rgb(2, 37, 2);
+    word-spacing: -2px;
 }
 
 .link:hover{
@@ -54,4 +63,45 @@
     font-size: 25px;
     position: relative;
     top: 40vh;
+}
+
+@media (max-width: 1000px){
+    .Item{
+        width: 150px;
+        height: 150px;
+
+    }
+}
+@media (max-width: 800px){
+    .Item{
+        width: 120px;
+        height: 120px;
+    }
+    .Price{
+        font-size: 15px;
+    }
+    .container{
+        font-size: 16px;
+    }
+}
+@media (max-width: 600px){
+    .Item{
+        width: 100px;
+        height: 100px;
+    }
+    .item{
+        padding: 10px 0;
+    }
+    .Cart{
+        display: block;
+        margin: 10px;
+    }
+    .Price{
+        width: 100%;
+        margin: 10px 0 ;
+        height: 200px
+    }
+    .container{
+        width: 100%;
+    }
 }

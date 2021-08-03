@@ -8,20 +8,23 @@ const modal = (props) => {
       <div className={styles.Close} onClick={props.remove}>
         <i className="times icon"></i>
       </div>
+      <div className={styles.Image}>
+      <img src={props.image1} alt=""></img>
+      </div>
       <div className={styles.Main}>
-        <img src={props.image1} alt=""></img>
+      <div
+          className={styles.Prev}
+          onClick={() => props.prevclick(props.image1)}
+        >
+          <i className="angle left icon"></i>
+        </div>
         <div
           className={styles.Next}
           onClick={() => props.nextclick(props.image1)}
         >
           <i className="angle right icon"></i>
         </div>
-        <div
-          className={styles.Prev}
-          onClick={() => props.prevclick(props.image1)}
-        >
-          <i className="angle left icon"></i>
-        </div>
+        
       </div>
     </div>
   ) : null;

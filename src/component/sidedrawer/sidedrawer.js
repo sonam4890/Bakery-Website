@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../../images/logo.jpg";
 import styles from "./sidedrawer.module.css";
+import {Link } from 'react-router-dom';
 
 const sidedrawer = (props) => {
   // let style = styles.menubar;
@@ -18,13 +19,13 @@ const sidedrawer = (props) => {
       </div>
       <ul className={styles.menubar}>
         <li>
-          <a href="#header">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="#about">About</a>
+          <Link to="about">About</Link>
         </li>
         <li>
-          <a href="#footer">Store</a>
+          <Link to="store">Store</Link>
         </li>
       </ul>
     </div>

@@ -9,7 +9,8 @@ class Register extends Component {
         userData: {
             username: '',
             password: '',
-        }
+        },
+        error: null,
     }
 
     inputChangeHandler = (event, name) => {
@@ -26,10 +27,8 @@ class Register extends Component {
         }
         console.log(user)
         this.props.onLogin(user);
-        
+        this.setState({userData: {username: '', password: ''}})
     }
-
-    
 
     signUpHandler = (e) => {
         e.preventDefault();
@@ -38,6 +37,7 @@ class Register extends Component {
         }
         console.log(user)
         this.props.onSignUp(user);
+        this.setState({userData: {username: '', password: ''}})
     }
 
     render(){

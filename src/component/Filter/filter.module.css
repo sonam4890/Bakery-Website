@@ -1,26 +1,29 @@
 .footer {
-  background-color: lightgrey;
-  padding: 20px;
+  background: rgb(241, 225, 225);
+  padding-top: 2%;
   text-align: center;
+  position: relative;
 }
 
 .head {
   font-size: 30px;
   text-transform: capitalize;
-  padding: 10px;
+  margin: 0;
+  padding: 0;
 }
 
 .pink {
   color: rgb(230, 84, 132);
   font-size: 50px;
 }
+
 .menu button {
   display: inline-flex;
   background-color: lightgrey;
   text-transform: uppercase;
   font-size: 16px;
   font-family: cursive;
-  margin: 12px 20px;
+  margin: 20px;
   padding: 5px 10px;
   border: 1px solid black;
 }
@@ -30,3 +33,6 @@
   color: rgb(230, 84, 132);
   cursor: pointer;
 }
+
+
+

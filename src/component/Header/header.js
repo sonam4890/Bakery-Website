@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../App.module.css";
+import styles from "./header.module.css";
 import bg from "../../images/cupcake-1.jpeg";
 
 const header = (props) => {

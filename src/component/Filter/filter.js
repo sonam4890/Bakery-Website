@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../App.module.css";
+import styles from "./filter.module.css";
 
 const filter = (props) => {
   return (
@@ -38,8 +38,9 @@ const filter = (props) => {
         <input
           type="text"
           placeholder="Search..."
+         
           onChange={(event) => props.changed(event)}
-        ></input>
+        />
         <button className="ui icon button" style={{ backgroundColor: "pink" }}>
           <i className="search icon"></i>
         </button>

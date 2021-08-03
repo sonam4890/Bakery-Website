@@ -28,13 +28,7 @@ const cart = (props) => {
                         <p>{item.id}</p>
                         <p>Rs: {item.price}</p>
                         <div className='option'>
-                            <select>
-                                <option>Qty</option>
-                                <option>500 gram</option>
-                                <option>1 Kg</option>
-                                <option>2 Kg</option>
-                            </select>
-                            <span className='link'>Delete</span>
+                            <span className='link' onClick={() => props.delete(item.id)}>Delete</span>
                             <Link to='/store' className='link'><span>See more like this</span></Link>
                         </div>
                     </div>
@@ -47,8 +41,8 @@ const cart = (props) => {
                    <div className='col-6'>Subtotal ({props.items.length} item)</div>
                    <div className='col-6'>{totalPrice.toFixed(2)}</div>
                </div>
-               <Link to='#' className="Button">Place Order</Link>
-               <Link to='/store'>Continue Shopping</Link>
+               <Link to='#' className="Button" className='links'>Place Order</Link>
+               <Link to='/store' className='links'>Continue Shopping</Link>
            </div>
         </div>
     )
