@@ -39,7 +39,7 @@ const navbar = (props) => {
       </Link>
       <Link to='/cart' className={styles.cart} >
         <i className="shopping cart icon"></i>
-        {props.item.length} items
+        {props.item?.length} items
       </Link>
       </div>
     </div>
